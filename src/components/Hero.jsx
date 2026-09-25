@@ -1,96 +1,162 @@
-// Icons as inline SVGs — zero dependencies
-const GithubIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+const ArrowUpRight = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: 14, height: 14 }}>
+    <line x1="7" y1="17" x2="17" y2="7" />
+    <polyline points="7 7 17 7 17 17" />
   </svg>
 )
-const LinkedinIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-    <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+
+const FileTextIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: 14, height: 14 }}>
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+    <polyline points="14 2 14 8 20 8" />
+    <line x1="16" y1="13" x2="8" y2="13" />
+    <line x1="16" y1="17" x2="8" y2="17" />
+    <polyline points="10 9 9 9 8 9" />
   </svg>
 )
-const XIcon = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor">
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-  </svg>
-)
-const MailIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-    <polyline points="22,6 12,13 2,6"/>
-  </svg>
-)
-const DownloadIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{width:15,height:15}}>
-    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-    <polyline points="7 10 12 15 17 10"/>
-    <line x1="12" y1="15" x2="12" y2="3"/>
-  </svg>
-)
-const ArrowIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{width:14,height:14}}>
-    <line x1="5" y1="12" x2="19" y2="12"/>
-    <polyline points="12 5 19 12 12 19"/>
-  </svg>
-)
+
+const CAPABILITIES = [
+  {
+    num: '01',
+    metric: '< 800ms',
+    metricLabel: 'p90 TTFA Turnaround',
+    title: 'Voice AI & Telephony Transport',
+    desc: 'Bi-directional WebSockets, Plivo PSTN bridging, Silero VAD, and Pipecat ONNX delivering sub-800ms audio turnaround on live telephone calls.',
+  },
+  {
+    num: '02',
+    metric: '78%',
+    metricLabel: 'API Cost Reduction',
+    title: 'Model Routing & LLM Infrastructure',
+    desc: 'Dynamic inference routing across Groq, Cerebras, and GPT-4o with prompt prefetching and strict Pydantic v2 runtime validation.',
+  },
+  {
+    num: '03',
+    metric: '< 200ms',
+    metricLabel: 'Cold Start Latency',
+    title: 'Serverless GPU & Microservice Serving',
+    desc: 'RunPod serverless containerized speech microservices with warm-pool caching and runtime memory pre-allocations.',
+  },
+  {
+    num: '04',
+    metric: '+35%',
+    metricLabel: 'Citation Recall Gain',
+    title: 'Hybrid RAG & LangGraph Workflows',
+    desc: 'BM25 sparse lexical search coupled with FAISS dense vector search over legal statutes and deterministic multi-step agent tool loops.',
+  },
+]
 
 export default function Hero() {
+  const scrollToContact = (e) => {
+    e.preventDefault()
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <section className="hero" id="hero">
-      <div className="container hero-layout">
+      <div className="container hero-container">
 
-        <div className="hero-content">
-          <p className="hero-eyebrow">Available for full-time roles — 2026</p>
-          <h1 className="hero-name">
-            Bharath<br />
-            Simha <span>Reddy</span>
-          </h1>
-          <p className="hero-title">AI Engineer &nbsp;·&nbsp; LLM Backends &nbsp;·&nbsp; RAG Pipelines &nbsp;·&nbsp; Autonomous Agents</p>
-          <div className="hero-divider" />
-          <p className="hero-bio">
-            AI Engineer specializing in scalable LLM backends — building tool-calling agents, RAG pipelines,
-            and model-serving APIs with strict Pydantic validation and end-to-end production deployment.
-          </p>
-          <div className="hero-actions">
-            <a href="/Bharath_AI_Engineer.pdf" className="btn-primary" download>
-              <DownloadIcon /> Resume
-            </a>
-            <a
-              href="#projects"
-              className="btn-secondary"
-              onClick={e => {
-                e.preventDefault()
-                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
-              }}
-            >
-              View work <ArrowIcon />
-            </a>
+        {/* Top bar: Resume link & CTA buttons on left, Portrait + badge on right */}
+        <div className="hero-top fade-in fade-in-1">
+          <div className="hero-top-left">
+            <div className="hero-actions-row">
+              <a
+                href="/Bharath_AI_Engineer.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-pill-white"
+              >
+                <FileTextIcon /> Resume (PDF) <ArrowUpRight />
+              </a>
+              <a
+                href="#contact"
+                onClick={scrollToContact}
+                className="btn-pill-translucent"
+              >
+                Let's talk <ArrowUpRight />
+              </a>
+            </div>
           </div>
-          <div className="hero-social-links">
-            <a href="https://github.com/Bharathsimhareddy18" target="_blank" rel="noopener noreferrer">
-              <GithubIcon /> GitHub
-            </a>
-            <a href="https://linkedin.com/in/bharath-simha-reddy-bhureddy-b988092b0" target="_blank" rel="noopener noreferrer">
-              <LinkedinIcon /> LinkedIn
-            </a>
-            <a href="https://x.com/ai_bharath" target="_blank" rel="noopener noreferrer">
-              <XIcon /> X
-            </a>
-            <a href="mailto:bharathsimhareddybhureddy@gmail.com">
-              <MailIcon /> Email
-            </a>
+
+          <div className="hero-top-right">
+            <span className="hero-badge">[ASSOCIATE AI/ML ENGINEER · DVITVA.AI (ALONZO AI)]</span>
+            <div className="hero-photo-wrapper">
+              <img
+                src="/avatar.jpeg"
+                alt="Bharath Simha Reddy"
+                className="hero-photo-img"
+                draggable="false"
+              />
+            </div>
           </div>
         </div>
 
-        <div className="hero-avatar-wrap">
-          <div className="hero-avatar-ring">
-            <img
-              src="/avatar.png"
-              alt="Bharath Simha Reddy"
-              className="hero-avatar-img"
-              draggable="false"
-            />
+        {/* Massive Display Headline + Name/Role Kicker + Experience Aside Description */}
+        <div className="hero-headline-wrap fade-in fade-in-2">
+          <div className="hero-headline-group">
+            <div className="hero-author-kicker">
+              <span className="hero-kicker-name">BHARATH SIMHA REDDY</span>
+              <span className="hero-kicker-sep">/</span>
+              <span className="hero-kicker-role">ASSOCIATE AI/ML ENGINEER</span>
+            </div>
+            <h1 className="hero-headline">
+              Voice AI &<br />Systems Architect
+            </h1>
+          </div>
+
+          <div className="hero-aside">
+            <p>
+              Associate AI/ML Engineer specializing in low-latency audio transport,
+              stateful multi-agent systems, and production backends for{' '}
+              <a
+                href="https://dvitva.ai/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-dvitva-link"
+              >
+                DVITVA.AI <ArrowUpRight />
+              </a>{' '}
+              (child company of Alonzo AI). Delivering sub-800ms TTFA telephony and cutting LLM costs by 78%.
+              Formerly AI/ML Engineering Intern at Bodega Delivery.
+            </p>
+          </div>
+        </div>
+
+        {/* What I Can Do For You — Featured Right At The Start */}
+        <div className="hero-offer-section fade-in fade-in-3">
+          <div className="hero-offer-header">
+            <span className="hero-offer-eyebrow">(WHAT I CAN DO FOR YOU)</span>
+            <span className="hero-offer-lead">
+              High-concurrency, ultra-low-latency backend architectures ready for production deployment:
+            </span>
+          </div>
+
+          <div className="hero-capabilities-grid">
+            {CAPABILITIES.map((cap) => (
+              <div key={cap.num} className="hero-cap-card">
+                <div className="hero-cap-accent-bar" />
+                <div className="hero-cap-header">
+                  <span className="hero-cap-num">{cap.num}</span>
+                  <span className="hero-cap-metric-label">{cap.metricLabel}</span>
+                </div>
+                <div className="hero-cap-metric-value">{cap.metric}</div>
+                <h3 className="hero-cap-title">{cap.title}</h3>
+                <p className="hero-cap-desc">{cap.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom Banner */}
+        <div className="hero-tags fade-in fade-in-4">
+          <div className="hero-tag-item">
+            <span>ASSOCIATE AI/ML ENGINEER</span>
+          </div>
+          <div className="hero-tag-item">
+            <span>VOICE AI & AUDIO TRANSPORT</span>
+          </div>
+          <div className="hero-tag-item">
+            <span>PRODUCTION LLM SYSTEMS</span>
           </div>
         </div>
 

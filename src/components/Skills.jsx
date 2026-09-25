@@ -2,24 +2,68 @@ import { useReveal } from '../hooks/useReveal'
 
 const SKILL_GROUPS = [
   {
-    label: 'Core Languages & Frameworks',
-    skills: ['Python', 'FastAPI', 'LangChain', 'PyTorch'],
+    label: 'Languages & Core Systems',
+    skills: ['Python (AsyncIO)', 'SQL', 'TypeScript', 'Bash', 'C++ (Basics)'],
   },
   {
-    label: 'Retrieval & Vector Search',
-    skills: ['RAG Pipelines', 'FAISS', 'BM25', 'Pinecone', 'HyDE'],
+    label: 'Voice AI & Audio DSP',
+    skills: [
+      'WebSockets',
+      'Plivo PSTN',
+      'mu-law / PCM16 Codecs',
+      'Silero VAD',
+      'Pipecat Smart Turn (ONNX)',
+      'WebRTC AEC',
+      'Audio Jitter Buffering',
+      'EBU R128 Loudness Gating',
+    ],
   },
   {
-    label: 'LLM & Agents',
-    skills: ['Tool Calling', 'GPT-4o-mini', 'Gemini Vision', 'Pydantic', 'Hugging Face'],
+    label: 'Speech & Foundation Models',
+    skills: [
+      'ElevenLabs Scribe',
+      'Murf Falcon-2',
+      'Sarvam AI (Saaras/Bulbul)',
+      'Cerebras (Llama-3.3-70B)',
+      'Groq (Low Latency)',
+      'OpenAI GPT-4o / o1',
+    ],
   },
   {
-    label: 'Infrastructure & Cloud',
-    skills: ['Docker', 'AWS EC2', 'AWS ECS', 'GCP', 'Supabase', 'APScheduler'],
+    label: 'Agentic AI & Orchestration',
+    skills: [
+      'LangGraph State Machines',
+      'LangChain',
+      'Tool-Calling Systems',
+      'Dynamic Reasoning Routing',
+      'Hybrid RAG (BM25 + FAISS)',
+      'LoRA Fine-Tuning',
+    ],
   },
   {
-    label: 'LLMOps & Evaluation',
-    skills: ['LLMOps', 'Langfuse', 'DeepEval', 'tenacity'],
+    label: 'Backend & Data Pipelines',
+    skills: [
+      'FastAPI',
+      'Pydantic v2',
+      'Redis 7.4 (Session Caching)',
+      'Motor (Async MongoDB)',
+      'PostgreSQL',
+      'Supabase',
+      'Uvicorn',
+    ],
+  },
+  {
+    label: 'Cloud, Serving & Observability',
+    skills: [
+      'RunPod Serverless',
+      'Docker Containerization',
+      'GitHub Actions (CI/CD)',
+      'Linux Kernel & Audio Streams',
+      'Locust Load Testing',
+      'Pytest',
+      'DeepEval',
+      'LangSmith',
+    ],
   },
 ]
 
@@ -27,17 +71,22 @@ export default function Skills() {
   const { ref } = useReveal()
 
   return (
-    <section className="skills" id="skills">
+    <section className="skills-section" id="skills">
       <div className="container">
-        <p className="section-label reveal" ref={ref}>Skills</p>
-        <h2 className="section-title reveal reveal-delay-1">Stack built for<br />production LLM systems.</h2>
+        <div className="skills-header reveal" ref={ref}>
+          <span className="section-label">(TECHNICAL ARSENAL)</span>
+          <h2 className="skills-headline">
+            PRODUCTION-TESTED STACK & ARCHITECTURAL TOOLS
+          </h2>
+        </div>
+
         <div className="skills-grid">
           {SKILL_GROUPS.map((group, i) => (
-            <div key={group.label} className={`skill-group reveal reveal-delay-${Math.min(i + 1, 4)}`}>
+            <div key={group.label} className={`skill-group-card reveal reveal-delay-${Math.min(i + 1, 4)}`}>
               <p className="skill-group-label">{group.label}</p>
               <div className="skill-tags">
-                {group.skills.map(s => (
-                  <span key={s} className="skill-tag">{s}</span>
+                {group.skills.map((s) => (
+                  <span key={s} className="skill-tag-pill">{s}</span>
                 ))}
               </div>
             </div>

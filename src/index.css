@@ -319,52 +319,17 @@ section {
 /* Main 2-Column Grid: Left holds CTA & Headline; Right holds Photo & Description */
 .hero-main-grid {
   display: grid;
-  grid-template-columns: 1.18fr 0.82fr;
-  gap: 56px;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 52px;
   align-items: start;
   margin-bottom: 56px;
 }
 
-/* Left Column: CTA Buttons & Headline */
+/* Left Column: Kicker, Headline, Bio, and CTAs */
 .hero-left-col {
   display: flex;
   flex-direction: column;
-  gap: 36px;
-}
-
-.hero-actions-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.btn-pill-translucent {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(245, 242, 235, 0.08);
-  color: var(--ink-text);
-  padding: 10px 22px;
-  border-radius: var(--radius-full);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  border: 1px solid var(--ink-border);
-  cursor: pointer;
-  transition: background 0.18s, transform 0.12s, border-color 0.18s;
-}
-
-.btn-pill-translucent:hover {
-  background: rgba(245, 242, 235, 0.16);
-  border-color: rgba(245, 242, 235, 0.35);
-  transform: translateY(-1px);
-}
-
-.hero-headline-group {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+  gap: 22px;
 }
 
 .hero-author-kicker {
@@ -392,80 +357,26 @@ section {
 
 .hero-headline {
   font-family: var(--font-display);
-  font-size: clamp(54px, 6.4vw, 96px);
+  font-size: clamp(44px, 5.2vw, 82px);
   font-weight: 800;
-  line-height: 0.94;
+  line-height: 0.96;
   letter-spacing: -0.04em;
   color: var(--ink-text);
+  margin: 0;
 }
 
-/* Right Column: Badge, Bigger Photo & Overview */
-.hero-right-col {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  align-items: flex-end;
+.hero-headline-nowrap {
+  white-space: nowrap;
 }
 
-.hero-photo-block {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 12px;
-  width: 100%;
-  max-width: 360px;
-}
-
-.hero-badge {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-  text-align: right;
-}
-
-.hero-photo-wrapper {
-  width: 100%;
-  max-width: 360px;
-  height: 420px;
-  border-radius: 24px;
-  overflow: hidden;
-  border: 1px solid rgba(246, 243, 235, 0.16);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
-  background: var(--ink-deep);
-}
-
-.hero-photo-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 20%;
-  filter: contrast(102%) brightness(98%);
-  transition: transform 0.4s ease;
-}
-
-.hero-photo-wrapper:hover .hero-photo-img {
-  transform: scale(1.03);
-}
-
-.hero-aside {
-  width: 100%;
-  max-width: 360px;
-}
-
-.hero-aside p {
-  font-size: 13.5px;
-  line-height: 1.7;
+.hero-desc {
+  font-size: 15px;
+  line-height: 1.75;
   color: var(--ink-muted);
   font-weight: 400;
-  letter-spacing: 0.02em;
-}
-
-.hero-aside strong {
-  color: #FFFFFF;
-  font-weight: 600;
+  letter-spacing: 0.01em;
+  max-width: 580px;
+  margin: 0;
 }
 
 .hero-dvitva-link {
@@ -481,6 +392,86 @@ section {
 
 .hero-dvitva-link:hover {
   opacity: 0.75;
+}
+
+.hero-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding-top: 8px;
+}
+
+.btn-pill-translucent {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245, 242, 235, 0.08);
+  color: var(--ink-text);
+  padding: 10px 22px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border: 1px solid var(--ink-border);
+  cursor: pointer;
+  transition: background 0.18s, transform 0.12s, border-color 0.18s;
+}
+
+.btn-pill-translucent:hover {
+  background: rgba(245, 242, 235, 0.16);
+  border-color: rgba(245, 242, 235, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Right Column: Badge & Large Portrait Photo */
+.hero-right-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.hero-photo-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  width: 100%;
+  max-width: 390px;
+}
+
+.hero-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  text-align: right;
+}
+
+.hero-photo-wrapper {
+  width: 100%;
+  max-width: 390px;
+  height: 480px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(246, 243, 235, 0.16);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+  background: var(--ink-deep);
+}
+
+.hero-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  filter: contrast(102%) brightness(98%);
+  transition: transform 0.4s ease;
+}
+
+.hero-photo-wrapper:hover .hero-photo-img {
+  transform: scale(1.03);
 }
 
 /* What I Can Do For You — Featured in Hero */
@@ -1693,22 +1684,17 @@ section {
     max-width: 300px;
     height: 360px;
   }
-  .hero-headline-group {
-    flex: none;
-    width: 100%;
-  }
   .hero-author-kicker {
     flex-wrap: wrap;
     gap: 6px 10px;
   }
   .hero-headline {
-    flex: none;
-    font-size: clamp(42px, 11vw, 68px);
+    font-size: clamp(40px, 10vw, 64px);
   }
-  .hero-aside {
-    max-width: 100%;
+  .hero-headline-nowrap {
+    white-space: normal;
   }
-  .hero-aside p {
+  .hero-desc {
     max-width: 100%;
   }
   .hero-tags {

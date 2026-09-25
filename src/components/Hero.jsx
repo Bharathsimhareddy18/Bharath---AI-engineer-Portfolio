@@ -56,10 +56,36 @@ export default function Hero() {
     <section className="hero" id="hero">
       <div className="container hero-container">
 
-        {/* Main 2-Column Grid: Left holds CTA & Headline; Right holds bigger photo & description */}
+        {/* Main 2-Column Grid: Left holds Kicker, Headline, Bio, and CTAs; Right holds Badge and Portrait Photo */}
         <div className="hero-main-grid fade-in fade-in-2">
-          {/* Left Column: Action Buttons, Kicker, and Giant Headline */}
+          {/* Left Column: Author Kicker, Giant Headline, Editorial Bio, and Action Buttons */}
           <div className="hero-left-col">
+            <div className="hero-author-kicker">
+              <span className="hero-kicker-name">BHARATH SIMHA REDDY</span>
+              <span className="hero-kicker-sep">/</span>
+              <span className="hero-kicker-role">ASSOCIATE AI/ML ENGINEER</span>
+            </div>
+
+            <h1 className="hero-headline">
+              Voice AI &<br />
+              <span className="hero-headline-nowrap">Systems Architect</span>
+            </h1>
+
+            <p className="hero-desc">
+              Associate AI/ML Engineer specializing in low-latency audio transport,
+              stateful multi-agent systems, and production backends for{' '}
+              <a
+                href="https://dvitva.ai/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-dvitva-link"
+              >
+                DVITVA.AI <ArrowUpRight />
+              </a>{' '}
+              (child company of Alonzo AI). Delivering sub-800ms TTFA telephony and cutting LLM costs by 78%.
+              Formerly AI/ML Engineering Intern at Bodega Delivery.
+            </p>
+
             <div className="hero-actions-row">
               <a
                 href="/Bharath_AI_Engineer.pdf"
@@ -77,20 +103,9 @@ export default function Hero() {
                 Let's talk <ArrowUpRight />
               </a>
             </div>
-
-            <div className="hero-headline-group">
-              <div className="hero-author-kicker">
-                <span className="hero-kicker-name">BHARATH SIMHA REDDY</span>
-                <span className="hero-kicker-sep">/</span>
-                <span className="hero-kicker-role">ASSOCIATE AI/ML ENGINEER</span>
-              </div>
-              <h1 className="hero-headline">
-                Voice AI &<br />Systems Architect
-              </h1>
-            </div>
           </div>
 
-          {/* Right Column: Badge, Bigger Portrait Photo, and Editorial Overview */}
+          {/* Right Column: Badge and Bigger Portrait Photo */}
           <div className="hero-right-col">
             <div className="hero-photo-block">
               <span className="hero-badge">[ASSOCIATE AI/ML ENGINEER · DVITVA.AI (ALONZO AI)]</span>
@@ -102,23 +117,6 @@ export default function Hero() {
                   draggable="false"
                 />
               </div>
-            </div>
-
-            <div className="hero-aside">
-              <p>
-                Associate AI/ML Engineer specializing in low-latency audio transport,
-                stateful multi-agent systems, and production backends for{' '}
-                <a
-                  href="https://dvitva.ai/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hero-dvitva-link"
-                >
-                  DVITVA.AI <ArrowUpRight />
-                </a>{' '}
-                (child company of Alonzo AI). Delivering sub-800ms TTFA telephony and cutting LLM costs by 78%.
-                Formerly AI/ML Engineering Intern at Bodega Delivery.
-              </p>
             </div>
           </div>
         </div>
